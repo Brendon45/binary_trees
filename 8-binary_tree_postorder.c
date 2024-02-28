@@ -2,25 +2,25 @@
 
 /**
  * binary_tree_postorder - function to traverse a binary tree in postorder
- * @tree:
- * @func:
+ * @tree: A pointer to the root node of the tree to traverse
+ * @func: a pointer to a function to call for each node
  *
- * If tree or func is NULL, do nothing
+ * Return: If tree or func is NULL, do nothing
  */
 
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
 {
 	if (tree == NULL || func == NULL)
-        return;
+		return;
 
-	// Traverse left subtree
+	/* Traverse left subtree */
 	if (tree->left != NULL)
-	binary_tree_postorder(tree->left, func);
+		binary_tree_postorder(tree->left, func);
 
-	// Traverse right subtree
+	/* Traverse right subtree */
 	if (tree->right != NULL)
-	binary_tree_postorder(tree->right, func);
+		binary_tree_postorder(tree->right, func);
 
-	// Visit the root node
+	/* Visit the root node */
 	func(tree->n);
 }
